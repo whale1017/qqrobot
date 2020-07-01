@@ -2,6 +2,7 @@ package com.thinking.robot.model;
 
 import com.thinking.robot.listener.FriendListener;
 import com.thinking.robot.listener.GroupListener;
+import com.thinking.robot.tuling.service.TuLingService;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactoryJvm;
 import net.mamoe.mirai.event.Events;
@@ -18,7 +19,7 @@ public class QQRobotBuilder {
 
     public static Bot bot = null;
     
-    public static Bot initAndGetRobot(RobotInfo robotInfo){
+    public static Bot initAndGetRobot(RobotInfo robotInfo, TuLingService tuLingService){
         if (bot == null || !bot.isOnline()) {
             if(bot != null && !bot.isOnline()){
                 // 清理连接，防止内存泄漏
@@ -31,8 +32,8 @@ public class QQRobotBuilder {
             }});
             // 登陆
             bot.login();
-            Events.registerEvents(bot, new FriendListener(robotInfo));
-            Events.registerEvents(bot, new GroupListener(robotInfo));
+            Events.registerEvents(bot, new FriendListener(robotInfo, tuLingService));
+            Events.registerEvents(bot, new GroupListener(robotInfo, tuLingService));
         }
         return bot;
     }
