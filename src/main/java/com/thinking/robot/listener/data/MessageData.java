@@ -3,6 +3,7 @@ package com.thinking.robot.listener.data;
 import net.mamoe.mirai.message.data.At;
 import net.mamoe.mirai.message.data.Message;
 import net.mamoe.mirai.message.data.MessageChain;
+import net.mamoe.mirai.message.data.MessageSource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,6 @@ public class MessageData {
     private List<Message> messages = new ArrayList<>();
     
     public MessageData(final MessageChain messageChain){
-        messageChain.first(At.Key);
         messages.addAll(messageChain);
     }
     
@@ -29,7 +29,7 @@ public class MessageData {
     
     public List<Message> getMessagesWithoutAt() {
         return messages.stream()
-                .filter(message -> !(message instanceof At))
+                .filter(message -> !(message instanceof At) && !(message instanceof MessageSource))
                 .collect(Collectors.toList());
     }
 }
