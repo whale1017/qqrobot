@@ -1,11 +1,12 @@
-package com.thinking.robot.tuling.service;
+package com.thinking.robot.domain.tuling.service.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.thinking.robot.tuling.data.EventInfo;
-import com.thinking.robot.tuling.data.TuLingRequestData;
-import com.thinking.robot.tuling.data.TuLingResponseData;
-import com.thinking.robot.tuling.data.TuLingRobotInfo;
+import com.thinking.robot.domain.tuling.data.EventInfo;
+import com.thinking.robot.domain.tuling.data.TuLingRequestData;
+import com.thinking.robot.domain.tuling.data.TuLingResponseData;
+import com.thinking.robot.domain.tuling.data.TuLingRobotInfo;
+import com.thinking.robot.domain.tuling.service.TuLingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,15 +14,19 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 @Slf4j
-public class TuLingService {
+public class TuLingServiceImpl implements TuLingService {
     
-    private static final RestTemplate restTemplate = new RestTemplate();
+    
     private static final ObjectMapper MAPPER = new ObjectMapper();
     private static final String TU_LING_URL_V2 = "http://openapi.tuling123.com/openapi/api/v2";
     
     @Autowired
+    private RestTemplate restTemplate;
+    
+    @Autowired
     private TuLingRobotInfo tuLingRobotInfo;
     
+    @Override
     public TuLingResponseData getRecallByText(final String text, final EventInfo eventInfo) {
         final TuLingRequestData.UserInfo userInfo = convertToUserInfo(eventInfo, tuLingRobotInfo.getApiKey());
         final TuLingRequestData tuLingRequestData = TuLingRequestData.getInstance(userInfo);

@@ -1,6 +1,6 @@
 package com.thinking.robot.config;
 
-import com.thinking.robot.model.RobotInfo;
+import com.thinking.robot.application.task.data.RobotInfo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

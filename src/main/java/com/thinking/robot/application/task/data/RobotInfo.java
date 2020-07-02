@@ -1,4 +1,4 @@
-package com.thinking.robot.model;
+package com.thinking.robot.application.task.data;
 
 public class RobotInfo{
     private Long qqId;

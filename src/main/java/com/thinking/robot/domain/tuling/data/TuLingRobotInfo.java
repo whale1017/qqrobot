@@ -1,4 +1,4 @@
-package com.thinking.robot.tuling.data;
+package com.thinking.robot.domain.tuling.data;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,8 +1,11 @@
 package com.thinking.robot.model;
 
-import com.thinking.robot.listener.FriendListener;
-import com.thinking.robot.listener.GroupListener;
-import com.thinking.robot.tuling.service.TuLingService;
+import com.thinking.robot.application.task.data.RobotInfo;
+import com.thinking.robot.application.task.listener.FriendListener;
+import com.thinking.robot.application.task.listener.GroupListener;
+import com.thinking.robot.domain.modulemanager.ModuleManager;
+import com.thinking.robot.domain.tuling.service.TuLingService;
+import com.thinking.robot.domain.tuling.service.impl.TuLingServiceImpl;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactoryJvm;
 import net.mamoe.mirai.event.Events;
@@ -19,7 +22,7 @@ public class QQRobotBuilder {
 
     public static Bot bot = null;
     
-    public static Bot initAndGetRobot(RobotInfo robotInfo, TuLingService tuLingService){
+    public static Bot initAndGetRobot(RobotInfo robotInfo, ModuleManager moduleManager){
         if (bot == null || !bot.isOnline()) {
             if(bot != null && !bot.isOnline()){
                 // 清理连接，防止内存泄漏
@@ -32,8 +35,8 @@ public class QQRobotBuilder {
             }});
             // 登陆
             bot.login();
-            Events.registerEvents(bot, new FriendListener(robotInfo, tuLingService));
-            Events.registerEvents(bot, new GroupListener(robotInfo, tuLingService));
+            Events.registerEvents(bot, new FriendListener(robotInfo, moduleManager));
+            Events.registerEvents(bot, new GroupListener(robotInfo, moduleManager));
         }
         return bot;
     }

@@ -1,16 +1,13 @@
-package com.thinking.robot.listener.assembler;
+package com.thinking.robot.application.task.listener.assembler;
 
-import com.thinking.robot.tuling.data.TuLingResponseData;
+import com.thinking.robot.domain.tuling.data.TuLingResponseData;
 import net.mamoe.mirai.message.data.Message;
 import net.mamoe.mirai.message.data.PlainText;
-import org.apache.logging.log4j.message.SimpleMessage;
-import org.apache.logging.log4j.message.SimpleMessageFactory;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class MessageAssembler {

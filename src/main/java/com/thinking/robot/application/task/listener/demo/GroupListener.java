@@ -1,4 +1,4 @@
-package com.thinking.robot.listener.demo;
+package com.thinking.robot.application.task.listener.demo;
 
 import com.thinking.robot.model.QQRobotBuilder;
 import kotlin.coroutines.CoroutineContext;

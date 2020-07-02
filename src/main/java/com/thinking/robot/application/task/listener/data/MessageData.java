@@ -1,4 +1,4 @@
-package com.thinking.robot.listener.data;
+package com.thinking.robot.application.task.listener.data;
 
 import net.mamoe.mirai.message.data.At;
 import net.mamoe.mirai.message.data.Message;

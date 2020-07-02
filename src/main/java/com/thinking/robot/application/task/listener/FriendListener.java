@@ -1,11 +1,15 @@
-package com.thinking.robot.listener;
+package com.thinking.robot.application.task.listener;
 
-import com.thinking.robot.listener.assembler.MessageAssembler;
-import com.thinking.robot.listener.data.MessageData;
-import com.thinking.robot.model.RobotInfo;
-import com.thinking.robot.tuling.data.EventInfo;
-import com.thinking.robot.tuling.data.TuLingResponseData;
-import com.thinking.robot.tuling.service.TuLingService;
+import com.thinking.robot.application.task.listener.assembler.MessageAssembler;
+import com.thinking.robot.application.task.listener.data.MessageData;
+import com.thinking.robot.application.task.data.RobotInfo;
+import com.thinking.robot.domain.modulemanager.ModuleManager;
+import com.thinking.robot.domain.tuling.data.EventInfo;
+import com.thinking.robot.domain.tuling.data.TuLingResponseData;
+import com.thinking.robot.domain.tuling.service.TuLingService;
+import com.thinking.robot.domain.tuling.service.impl.TuLingServiceImpl;
+import com.thinking.robot.domain.weather.assembler.DailyWeatherAssembler;
+import com.thinking.robot.domain.weather.data.DailyWeatherDto;
 import kotlin.coroutines.CoroutineContext;
 import net.mamoe.mirai.event.EventHandler;
 import net.mamoe.mirai.message.FriendMessageEvent;
@@ -23,11 +27,8 @@ import java.util.List;
  */
 public class FriendListener extends BaseListener {
     
-    private TuLingService tuLingService;
-    
-    public FriendListener(RobotInfo robotInfo, TuLingService tuLingService) {
-        super(robotInfo);
-        this.tuLingService = tuLingService;
+    public FriendListener(RobotInfo robotInfo, ModuleManager moduleManager) {
+        super(robotInfo, moduleManager);
     }
     
     /**
@@ -54,7 +55,7 @@ public class FriendListener extends BaseListener {
                 EventInfo eventInfo = new EventInfo()
                         .setUserId(event.getSender().getId())
                         .setUserIdName(event.getSenderName());
-                final TuLingResponseData response = tuLingService.getRecallByText(text.getContent(), eventInfo);
+                final TuLingResponseData response = moduleManager.getTuLingService().getRecallByText(text.getContent(), eventInfo);
                 final List<Message> messages = MessageAssembler.assemblerToMessageList(response.getResults());
                 builder.addAllFlatten(messages);
             } else {
