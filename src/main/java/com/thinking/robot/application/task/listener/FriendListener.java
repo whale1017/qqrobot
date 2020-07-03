@@ -48,7 +48,7 @@ public class FriendListener extends BaseListener {
          */
         final MessageChainBuilder builder = new MessageChainBuilder();
         
-        if(true){
+        if(false){
             PlainText text = messageChain.first(PlainText.Key);
             if(text != null){
                 String[] strings = text.getContent().trim().split(" ");

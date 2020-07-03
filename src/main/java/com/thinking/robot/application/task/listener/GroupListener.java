@@ -54,10 +54,12 @@ public class GroupListener extends BaseListener {
         if(true){
             PlainText text = messageChain.first(PlainText.Key);
             if(text != null){
-                
                 String[] strings = text.getContent().trim().split(" ");
                 if(strings.length >=2 && Objects.equals(strings[0], "天气")){
                     BaseDto dto = moduleManager.getWeatherService().searchDailyWeather(strings[1], "0", 3);
+                    builder.add(DailyWeatherAssembler.dailyWeatherDtoAssemblerToText(dto));
+                } else if(strings.length >=2 && Objects.equals(strings[0], "生活指数")){
+                    BaseDto dto = moduleManager.getLifeService().searchLifeInfo(strings[1]);
                     builder.add(DailyWeatherAssembler.dailyWeatherDtoAssemblerToText(dto));
                 } else {
                     EventInfo eventInfo = new EventInfo()
