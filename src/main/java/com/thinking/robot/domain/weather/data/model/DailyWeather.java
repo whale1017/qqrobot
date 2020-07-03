@@ -1,4 +1,4 @@
-package com.thinking.robot.domain.weather.data;
+package com.thinking.robot.domain.weather.data.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
