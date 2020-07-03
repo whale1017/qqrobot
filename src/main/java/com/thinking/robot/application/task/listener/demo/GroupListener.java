@@ -61,11 +61,6 @@ public class GroupListener extends SimpleListenerHost {
         }
 
         /**
-         * 群列表寻找指定群,定向式发送信息
-         */
-        Group group = QQRobotBuilder.bot.getGroup(event.getGroup().getId());
-        group.sendMessage("这是群聊定向消息");
-        /**
          * 向事件触发群发送,触发式发送信息
          */
         event.getGroup().sendMessage("这是群内触发回复");
