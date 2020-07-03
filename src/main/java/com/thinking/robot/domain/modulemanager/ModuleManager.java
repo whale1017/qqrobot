@@ -1,6 +1,7 @@
 package com.thinking.robot.domain.modulemanager;
 
 import com.thinking.robot.domain.tuling.service.TuLingService;
+import com.thinking.robot.domain.weather.servcie.LifeService;
 import com.thinking.robot.domain.weather.servcie.WeatherService;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +16,8 @@ public class ModuleManager {
     
     @Autowired
     private WeatherService weatherService;
+    
+    @Autowired
+    private LifeService lifeService;
     
 }

@@ -7,7 +7,7 @@ import com.thinking.robot.domain.modulemanager.ModuleManager;
 import com.thinking.robot.domain.tuling.data.EventInfo;
 import com.thinking.robot.domain.tuling.data.TuLingResponseData;
 import com.thinking.robot.domain.weather.assembler.DailyWeatherAssembler;
-import com.thinking.robot.domain.weather.data.DailyWeatherDto;
+import com.thinking.robot.domain.weather.data.model.BaseDto;
 import kotlin.coroutines.CoroutineContext;
 import net.mamoe.mirai.event.EventHandler;
 import net.mamoe.mirai.message.GroupMessageEvent;
@@ -57,7 +57,7 @@ public class GroupListener extends BaseListener {
                 
                 String[] strings = text.getContent().trim().split(" ");
                 if(strings.length >=2 && Objects.equals(strings[0], "天气")){
-                    DailyWeatherDto dto = moduleManager.getWeatherService().searchDailyWeather(strings[1], "0", 3);
+                    BaseDto dto = moduleManager.getWeatherService().searchDailyWeather(strings[1], "0", 3);
                     builder.add(DailyWeatherAssembler.dailyWeatherDtoAssemblerToText(dto));
                 } else {
                     EventInfo eventInfo = new EventInfo()
