@@ -11,18 +11,28 @@ import net.mamoe.mirai.BotFactoryJvm;
 import net.mamoe.mirai.event.Events;
 import net.mamoe.mirai.utils.BotConfiguration;
 import net.mamoe.mirai.utils.SystemDeviceInfoKt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import java.awt.*;
 import java.io.File;
 
 /**
  * @author nanke
  * @date 2020/6/28 上午11:48
  */
+@Component
 public class QQRobotBuilder {
 
-    public static Bot bot = null;
+    private static Bot bot = null;
     
-    public static Bot initAndGetRobot(RobotInfo robotInfo, ModuleManager moduleManager){
+    @Autowired
+    private ModuleManager moduleManager;
+    
+    @Autowired
+    private RobotInfo robotInfo;
+    
+    public Bot initAndGetRobot(){
         if (bot == null || !bot.isOnline()) {
             if(bot != null && !bot.isOnline()){
                 // 清理连接，防止内存泄漏

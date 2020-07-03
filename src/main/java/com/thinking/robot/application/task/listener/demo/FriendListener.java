@@ -55,11 +55,6 @@ public class FriendListener extends SimpleListenerHost {
         }
 
         /**
-         * 好友列表寻找某位好友,定向式发送信息
-         */
-        Friend friend = QQRobotBuilder.bot.getFriend(event.getSender().getId());
-        friend.sendMessage("这是好友私聊定向消息");
-        /**
          * 向事件触发方发送,触发式发送信息
          */
         event.getSender().sendMessage("这是好友私聊触发消息");
