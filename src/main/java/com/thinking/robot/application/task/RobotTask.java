@@ -5,6 +5,7 @@ import com.thinking.robot.domain.leetcode.service.LeetCodeService;
 import com.thinking.robot.domain.message.service.MessageService;
 import com.thinking.robot.model.QQRobotBuilder;
 import com.thinking.robot.utils.HtmlToImageUtils;
+import lombok.extern.slf4j.Slf4j;
 import net.mamoe.mirai.contact.Contact;
 import net.mamoe.mirai.message.data.AtAll;
 import net.mamoe.mirai.message.data.Message;
@@ -21,6 +22,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@Slf4j
 public class RobotTask {
     
     @Autowired
@@ -35,8 +37,9 @@ public class RobotTask {
     @Value("${leetcode.groupid}")
     private Long groupId;
     
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedDelay = 10000)
     public void checkBot(){
+        log.info("check bot connection");
         qqRobotBuilder.initAndGetRobot();
     }
     

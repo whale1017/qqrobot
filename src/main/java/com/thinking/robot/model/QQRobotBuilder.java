@@ -6,6 +6,7 @@ import com.thinking.robot.application.task.listener.GroupListener;
 import com.thinking.robot.domain.modulemanager.ModuleManager;
 import com.thinking.robot.domain.tuling.service.TuLingService;
 import com.thinking.robot.domain.tuling.service.impl.TuLingServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactoryJvm;
 import net.mamoe.mirai.event.Events;
@@ -22,6 +23,7 @@ import java.io.File;
  * @date 2020/6/28 上午11:48
  */
 @Component
+@Slf4j
 public class QQRobotBuilder {
 
     private static Bot bot = null;
@@ -34,6 +36,7 @@ public class QQRobotBuilder {
     
     public Bot initAndGetRobot(){
         if (bot == null || !bot.isOnline()) {
+            log.info("init bot connection");
             if(bot != null && !bot.isOnline()){
                 // 清理连接，防止内存泄漏
                 bot.close(null);
