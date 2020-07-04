@@ -5,6 +5,7 @@ import com.thinking.robot.domain.leetcode.service.LeetCodeService;
 import com.thinking.robot.domain.message.service.MessageService;
 import com.thinking.robot.model.QQRobotBuilder;
 import com.thinking.robot.utils.HtmlToImageUtils;
+import lombok.extern.slf4j.Slf4j;
 import net.mamoe.mirai.contact.Contact;
 import net.mamoe.mirai.message.data.AtAll;
 import net.mamoe.mirai.message.data.Message;
@@ -21,6 +22,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@Slf4j
 public class RobotTask {
     
     @Autowired
@@ -48,6 +50,7 @@ public class RobotTask {
         final List<Message> messageList = new LinkedList<>();
         
         final BufferedImage image = HtmlToImageUtils.html2Img(question.getTranslatedContent());
+        log.info("question content:{}", question.getTranslatedContent());
         final Contact contact = qqRobotBuilder.initAndGetRobot().getGroup(groupId);
         final Message message = contact.uploadImage(image);
         
@@ -58,7 +61,7 @@ public class RobotTask {
         
         final Message questionLink = new PlainText("\n题目链接:\nhttps://leetcode-cn.com/problems/" + question.getTitleSlug() + "/");
         
-        messageList.add(AtAll.INSTANCE);
+//        messageList.add(AtAll.INSTANCE);
         messageList.add(dateMessage);
         messageList.add(message);
         messageList.add(questionLink);
