@@ -54,13 +54,15 @@ public class RobotTask {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String dateNowStr = sdf.format(date);
-        final Message dateMessage = new PlainText("\n每日一题  " + dateNowStr);
-        
-        final Message questionLink = new PlainText("\n题目链接:\nhttps://leetcode-cn.com/problems/" + question.getTitleSlug() + "/");
+        final Message dateMessage = new PlainText("每日一题  " + dateNowStr);
+        final Message questionLink = new PlainText("题目链接:\nhttps://leetcode-cn.com/problems/" + question.getTitleSlug() + "/");
         
         messageList.add(AtAll.INSTANCE);
+        messageList.add(new PlainText("\n"));
         messageList.add(dateMessage);
+        messageList.add(new PlainText("\n"));
         messageList.add(message);
+        messageList.add(new PlainText("\n"));
         messageList.add(questionLink);
     
         messageService.sendMessage(contact, messageList);
