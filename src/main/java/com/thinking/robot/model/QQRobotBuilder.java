@@ -4,6 +4,7 @@ import com.thinking.robot.application.task.data.RobotInfo;
 import com.thinking.robot.application.task.listener.FriendListener;
 import com.thinking.robot.application.task.listener.GroupListener;
 import com.thinking.robot.domain.modulemanager.ModuleManager;
+import com.thinking.robot.domain.modulemanager.RuleExecuteService;
 import com.thinking.robot.domain.tuling.service.TuLingService;
 import com.thinking.robot.domain.tuling.service.impl.TuLingServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +30,7 @@ public class QQRobotBuilder {
     private static Bot bot = null;
     
     @Autowired
-    private ModuleManager moduleManager;
+    private RuleExecuteService ruleExecuteService;
     
     @Autowired
     private RobotInfo robotInfo;
@@ -48,8 +49,8 @@ public class QQRobotBuilder {
             }});
             // 登陆
             bot.login();
-            Events.registerEvents(bot, new FriendListener(robotInfo, moduleManager));
-            Events.registerEvents(bot, new GroupListener(robotInfo, moduleManager));
+            Events.registerEvents(bot, new FriendListener(robotInfo, ruleExecuteService));
+            Events.registerEvents(bot, new GroupListener(robotInfo, ruleExecuteService));
         }
         return bot;
     }
