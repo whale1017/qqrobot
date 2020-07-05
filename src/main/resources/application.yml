@@ -1,1 +1,9 @@
-weather.key = ${weather.key}
+qq:
+  id: 11111111 # 机器人QQ号
+  password: password # 机器人QQ密码
+tuling:
+  appkey: sssssssssssss # 图灵机器人Key
+  description: 聊天 # 机器人描述
+
+weather.key: ssssssss # 知心天气key
+leetcode.groupid: ssssss # 每天9点发送leetcode每日一题到该群组
