@@ -1,11 +1,9 @@
 package com.thinking.robot.domain.modulemanager;
 
-import com.sun.tools.hat.internal.server.HistogramQuery;
 import com.thinking.robot.domain.modulemanager.rules.BaseRule;
 import com.thinking.robot.domain.modulemanager.rules.LifeInfoRule;
 import com.thinking.robot.domain.modulemanager.rules.TuLingRule;
 import com.thinking.robot.domain.modulemanager.rules.WeatherRule;
-import lombok.Getter;
 import net.mamoe.mirai.message.MessageEvent;
 import net.mamoe.mirai.message.data.Message;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.PriorityQueue;
 
 @Component
 public class RuleExecuteService {
