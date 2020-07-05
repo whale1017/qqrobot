@@ -50,7 +50,7 @@ public class GroupListener extends BaseListener {
             final MessageChainBuilder builder = new MessageChainBuilder();
             builder.add(new At(event.getSender()));
             builder.addAllFlatten(messageList);
-            event.getSender().sendMessage(builder.build());
+            event.getGroup().sendMessage(builder.build());
         }
     }
     
