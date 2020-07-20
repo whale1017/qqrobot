@@ -13,7 +13,7 @@ import java.util.List;
 
 public class CompilerRule extends BaseRule {
     private static final int LEVEL = 0;
-    private static final String PREFIX = "编译运行 ";
+    private static final String PREFIX = "编译运行";
     
     public CompilerRule(ModuleManager moduleManager) {
         super(moduleManager, LEVEL);
