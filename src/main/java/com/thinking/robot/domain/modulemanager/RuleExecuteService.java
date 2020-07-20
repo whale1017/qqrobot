@@ -1,6 +1,7 @@
 package com.thinking.robot.domain.modulemanager;
 
 import com.thinking.robot.domain.modulemanager.rules.BaseRule;
+import com.thinking.robot.domain.modulemanager.rules.CompilerRule;
 import com.thinking.robot.domain.modulemanager.rules.LifeInfoRule;
 import com.thinking.robot.domain.modulemanager.rules.TuLingRule;
 import com.thinking.robot.domain.modulemanager.rules.WeatherRule;
@@ -29,6 +30,7 @@ public class RuleExecuteService {
             ruleQueue = new ArrayList<BaseRule>(Arrays.asList(
                     new LifeInfoRule(moduleManager),
                     new TuLingRule(moduleManager),
+                    new CompilerRule(moduleManager),
                     new WeatherRule(moduleManager)
             ));
             ruleQueue.sort(Comparator.comparingInt(BaseRule::getLevel));
