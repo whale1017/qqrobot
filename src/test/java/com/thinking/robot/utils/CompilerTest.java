@@ -5,10 +5,9 @@ import com.thinking.robot.utils.compiler.CompilerExecutor;
 import org.junit.Test;
 
 public class CompilerTest {
-    private static final String source = "public class CompilerMain extends AbstractCompilerClass {\n" +
-            "    @Override\n" +
-            "    public Object solution(Object... args) {\n" +
-            "        return \"测试运行\";\n" +
+    private static final String source = "public class Main {\n" +
+            "    public static Object main() {\n" +
+            "        return \"动态编译测试通过\";\n" +
             "    }\n" +
             "}";
     
