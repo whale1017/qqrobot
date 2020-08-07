@@ -1,7 +1,7 @@
 package com.thinking.robot.application.task.listener;
 
 import com.thinking.robot.application.task.data.RobotInfo;
-import com.thinking.robot.domain.modulemanager.RuleExecuteService;
+import com.thinking.robot.domain.facade.modulemanager.RuleExecuteService;
 import net.mamoe.mirai.event.SimpleListenerHost;
 
 public class BaseListener extends SimpleListenerHost {

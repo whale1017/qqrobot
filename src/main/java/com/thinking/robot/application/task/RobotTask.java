@@ -1,9 +1,9 @@
 package com.thinking.robot.application.task;
 
-import com.thinking.robot.domain.leetcode.data.Question;
-import com.thinking.robot.domain.leetcode.service.LeetCodeService;
-import com.thinking.robot.domain.message.service.MessageService;
-import com.thinking.robot.model.QQRobotBuilder;
+import com.thinking.robot.domain.facade.leetcode.data.Question;
+import com.thinking.robot.domain.facade.leetcode.service.LeetCodeService;
+import com.thinking.robot.domain.facade.message.service.MessageService;
+import com.thinking.robot.domain.service.QQRobotBuilder;
 import com.thinking.robot.utils.HtmlToImageUtils;
 import lombok.extern.slf4j.Slf4j;
 import net.mamoe.mirai.contact.Contact;

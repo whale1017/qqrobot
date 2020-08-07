@@ -1,8 +1,6 @@
 package com.thinking.robot.application.task.listener.demo;
 
-import com.thinking.robot.model.QQRobotBuilder;
 import kotlin.coroutines.CoroutineContext;
-import net.mamoe.mirai.contact.Friend;
 import net.mamoe.mirai.event.EventHandler;
 import net.mamoe.mirai.event.SimpleListenerHost;
 import net.mamoe.mirai.message.FriendMessageEvent;
