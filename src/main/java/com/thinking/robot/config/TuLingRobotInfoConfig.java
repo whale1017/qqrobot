@@ -1,6 +1,6 @@
 package com.thinking.robot.config;
 
-import com.thinking.robot.domain.tuling.data.TuLingRobotInfo;
+import com.thinking.robot.domain.facade.tuling.data.TuLingRobotInfo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

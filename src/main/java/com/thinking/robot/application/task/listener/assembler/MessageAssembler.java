@@ -1,6 +1,6 @@
 package com.thinking.robot.application.task.listener.assembler;
 
-import com.thinking.robot.domain.tuling.data.TuLingResponseData;
+import com.thinking.robot.domain.facade.tuling.data.TuLingResponseData;
 import net.mamoe.mirai.message.data.Message;
 import net.mamoe.mirai.message.data.PlainText;
 import org.springframework.util.CollectionUtils;
